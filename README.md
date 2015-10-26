@@ -3,8 +3,7 @@
 GTZAN DATASET
 
 
-train : 900 wav files
-
+train : 900 wav files <br>
 val : 100 wav files
 
 
