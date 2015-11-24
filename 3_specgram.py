@@ -87,13 +87,13 @@ def plotstft(audiopath, binsize=2**10, plotpath=None, colormap="jet"):
     
     
     
-directory='/home/seonhoon/Desktop/workspace/music/data/train/'
+directory='/home/seonhoon/Desktop/workspace/music/data6/train/'
 files = []
 for file in os.listdir(directory):
     if file.endswith('.wav'):
         files.append(directory+file)
 
-target = '/home/seonhoon/Desktop/workspace/music/data/specgram/train/'
+target = '/home/seonhoon/Desktop/workspace/music/data6/specgram/train/'
 for i in range(len(files)):
     filename = files[i].split('/')[-1].replace('wav','jpg')
     print i, filename

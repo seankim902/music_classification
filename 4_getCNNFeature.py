@@ -8,14 +8,14 @@ import pandas as pd
 
 
 
-os.chdir('/home/seonhoon/Desktop/workspace/music/data/')
-data=pd.read_pickle('train.pkl')
+os.chdir('/home/seonhoon/Desktop/workspace/music/data6/')
+data=pd.read_pickle('valid_fft.pkl')
 
 files= data['file']
 nfiles=[]
 
 for i in range(len(files)):
-    nfiles.append(files[i].replace('data','data/specgram').replace('wav','jpg'))
+    nfiles.append(files[i].replace('data6','data6/specgram').replace('wav','jpg'))
 
 
 
@@ -36,4 +36,4 @@ for j in xrange(len(featurelist)):
     data.set_value(j,'cnn_feature',featurelist[j])
     data.set_value(j,'jpg_file',nfiles[j].split('/')[-1])
 
-data.to_pickle('train.pkl')
+data.to_pickle('valid_fft.pkl')

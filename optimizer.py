@@ -14,7 +14,7 @@ def sgd(cost, params, lr ):
 
     return updates
 
-def adam( cost, params, lr=0.001, b1=0.9, b2=0.999, e=1e-8):
+def adam( cost, params, lr=0.001, b1=0.1, b2=0.001, e=1e-8):  #b1=0.9, b2=0.999
     updates = []
     grads = T.grad(cost, params)
     i = theano.shared(np.float32(0.))

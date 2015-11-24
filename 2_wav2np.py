@@ -98,12 +98,12 @@ def convert_wav_files_to_nptensor(directory, block_size, max_seq_len, out_file, 
 
 freq = 22050
 clip_len = 28 		#length of clips for training. Defined in seconds
-block_size = freq / 2 #block sizes used for training - this defines the size of our input state
+block_size = freq / 4 #block sizes used for training - this defines the size of our input state
 max_seq_len = int(round((freq * clip_len) / block_size)) #Used later for zero-padding song sequences
 print max_seq_len
 
 
-x_data, y_data, files = convert_wav_files_to_nptensor('/home/seonhoon/Desktop/workspace/music/data/valid/', block_size, max_seq_len, 'temp.npy')
+x_data, y_data, files = convert_wav_files_to_nptensor('/home/seonhoon/Desktop/workspace/music/data6_mfcc/train/', block_size, max_seq_len, 'temp.npy')
 new_x_data=[]
 for i in range(len(x_data)):
     print x_data[i].shape
@@ -114,7 +114,7 @@ train=pd.DataFrame()
 
 genre={'reggae':0,'jazz':1,'metal':2,'hiphop':3,'blues':4,'classical':5,'country':6,'pop':7,'disco':8,'rock':9}
 
-train['x']=new_x_data
+#train['x']=new_x_data
 train['genre']=y_data
 train['file']=files
 y_data2=[]
@@ -122,5 +122,5 @@ for i in range(len(y_data)):
     y_data2.append( genre[y_data[i]])
 train['y']=y_data2
 
-train.to_pickle('/home/seonhoon/Desktop/workspace/music/data/valid.pkl')
+train.to_pickle('/home/seonhoon/Desktop/workspace/music/data6_mfcc/train.pkl')
 print 'end'
